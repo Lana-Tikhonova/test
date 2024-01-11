@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Untitled Document</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .block {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            pointer-events: none;
+            transform: translateY(-100%);
+        }
+
+        .elem {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background: red;
+            pointer-events: initial;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .input {
+            padding: 30px;
+        }
+    </style>
+    <div class='input'>
+        <input type="text">
+    </div>
+    <div class='block'>
+        <div class='elem'></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            const elem = $('.block');
+
+            if (window.visualViewport) {
+                const vv = window.visualViewport;
+
+                function fixPosition() {
+                    elem.css('top', `${vv.height}px`);
+                }
+
+                vv.addEventListener('resize', fixPosition);
+                fixPosition();
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
