@@ -24,7 +24,7 @@
             height: 100dvh;
             position: fixed;
             left: 0;
-            /* top: 0; */
+            top: 0;
             pointer-events: none;
             /* transform: translateY(-100%); */
         }
@@ -60,7 +60,7 @@
                 const vv = window.visualViewport;
 
                 function fixPosition() {
-                    elem.css('bottom', `calc(100% - ${vv.height}px)`);
+                    elem.css('height', `${vv.height}px`);
                     console.log(vv.height);
                 }
 
